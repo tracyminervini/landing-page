@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@1,700;1,800&family=Arimo:wght@700&family=Libre+Franklin:wght@100&display=swap");
+
+:root {
+  --left-botao-hover-color: #ddd8d8;
+  --right-botao-hover-color: #ddd8d8;
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 2000ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arimo", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+h1 {
+  font-size: 4rem;
+  color: transparent;
+  position: absolute;
+  left: 50%;
+  top: -5%;
+  transform: translate(-50%);
+  white-space: nowrap;
+  background: rgb(131,58,180);
+  background: radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(247,158,33,1) 100%); 
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+h2 {
+  font-size: 4rem;
+  color:transparent;
+  position: absolute;
+  left: 50%;
+  top: -5%;
+  transform: translate(-50%);
+  white-space: nowrap;
+  background: rgb(252, 222, 56);
+  background: radial-gradient(circle, rgb(14, 10, 10) 0%, rgba(253,29,29,1) 100%, rgba(247,158,33,1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.botao {
+  position: absolute;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%);
+  text-decoration: none;
+  color: rgb(56, 56, 58);
+  border: rgb(245, 246, 250) solid 0.2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 15rem;
+  padding: 10px;
+  background-color: rgb(243, 245, 244);
+}
+
+.split.left .botao:hover {
+  background-color: var(--left-botao-hover-color);
+  border-color: var(--left-botao-hover-color);
+}
+
+.split.right .botao:hover {
+  background-color: var(--right-botao-hover-color);
+  border-color: var(--right-botao-hover-color);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+}
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.split.left {
+  left: 0;
+  background: url("calabresa.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.right {
+  right: 0;
+  background: url("caprese.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.left::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--left-bg-color);
+}
+.split.split.right::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--right-bg-color);
+}
+
+.split.right,
+.split.left,
+.split.right::before,
+.split.left::before {
+  transition: all var(--speed) ease-in-out;
+}
+
+.hover-left .left {
+  width: var(--hover-width);
+}
+
+.hover-left .right {
+  width: var(--other-width);
+}
+
+.hover-right .right {
+  width: var(--hover-width);
+}
+
+.hover-right .left {
+  width: var(--other-width);
+}
+
+footer {
+  position: absolute;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 18px;
+  font-weight: bolder;
+  bottom: 0px;
+  width: 120%;
+  height: 25px;
+  color: rgb(7, 7, 7);
+}
+@media (max-widht: 800px) {
+  h1 {
+    font-size: 2rem;
+    top: 30px;
+  }
+  .botao {
+    padding: 1.2rem;
+    width: 12rem;
+  }
+}
